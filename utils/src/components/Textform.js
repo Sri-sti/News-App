@@ -8,6 +8,7 @@ export default function Textformprops(props) {
     const handleup=()=>{
        let newtext=text.toUpperCase();
        setText(newtext);
+       props.show("Convertred to upper case","success")
     }
 
     //Function to handle on change on text area
@@ -19,6 +20,7 @@ export default function Textformprops(props) {
     const handlelw=()=>{
       let tex=text.toLowerCase();
       setText(tex);
+      props.show("Convertred to lower case","success")
   }
 
   //Function to copy the text to clipborard
@@ -26,18 +28,21 @@ export default function Textformprops(props) {
     let tex=document.getElementById("myBox");
     tex.select();
     navigator.clipboard.writeText(tex.value)
+    props.show("copy text","success")
 }
 
  //Function to handle extra space
  const handlspace=()=>{
   let tex=text.split(/[ ]+/);
   setText(tex.join(" "));
+  props.show("remove extra space","success")
 }
 
    //Function to clear the text
    const handlclear=()=>{
     let tex=" ";
     setText(tex);
+    props.show("Clear text","success")
 }
 
   return (
