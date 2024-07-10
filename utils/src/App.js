@@ -27,11 +27,21 @@ function App() {
       setMode("dark")
       document.body.style.backgroundColor='#042743';
       showalert("Dark mode has been enables","success")
-        }
+      document.title="Utils-Dark mode"
+
+      //for pops to get virsus not good for user experience
+      // setTimeout(() => {
+      //   document.title="Utils- is an amazing website"
+      // }, 2000);
+      // setTimeout(() => {
+      //   document.title="Utils- download it now!!"
+      // }, 3000);
+       }
     else{
       setMode("light");
       document.body.style.backgroundColor='white';
       showalert("Light mode has been enables","success")
+      document.title="Utils-Light mode"
     }
   }
   return(
@@ -48,3 +58,4 @@ function App() {
 }
 
 export default App;
+//react router
