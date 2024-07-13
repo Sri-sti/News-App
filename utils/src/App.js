@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-//import About from './components/About';
+import About from './components/About';
 import Textform from './components/Textform';
 import Alert from './components/Alert';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   //creting state for dark mode
   const[mode,setMode]=useState("light");
@@ -46,16 +47,26 @@ function App() {
   }
   return(
     <>
-   
-<Navbar title="Utils" about="About us" Mod={mode} togglemode={toggmode} />
+    <BrowserRouter>
+    <Navbar title="Utils" about="About us" Mod={mode} togglemode={toggmode} />
 <Alert alert={allert}/>
 <div className='container my-3'>
-<Textform show={showalert} heading="Enter the text" Mod={mode}/>
-{/* <About/> */}
-</div>
+<Routes>
+            <Route exact path="/about" element={<About />}></Route>
+            <Route
+              exact path="/"
+              element={
+                <Textform show={showalert} heading="Enter the text" Mod={mode}/>
+              }
+            ></Route>
+          </Routes>
+  
+      
+          </div>   
+</BrowserRouter>
     </>
   )
 }
 
 export default App;
-//react router
+//free building and hosrting
